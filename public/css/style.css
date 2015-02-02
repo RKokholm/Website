@@ -29,6 +29,7 @@ h1 {
 	color: #27ae60;
 	font-size: 30px;
 	margin: auto;
+	text-align: center;
 }
 
 #header {
@@ -106,14 +107,13 @@ h1 {
 
 #authlist {
 	height: 82%;
-	width: 156px;
+	width: 175px;
 	box-sizing: border-box;
 	margin: 4px 0px;
 }
 
 #authlist li {
 	height: 100%;
-	padding: 0px 2px;
 }
 
 #authlist li a {

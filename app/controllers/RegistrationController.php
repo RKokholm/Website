@@ -31,7 +31,33 @@ class RegistrationController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$validator = Validator::make(Input::all(),[
+
+			'name' => 'required|min:3|max:20',
+			'summ_name' => 'required|unique:users|min:3|max:20',
+			'email' => 'required|email|unique:users',
+			'password' => 'required|min:6|confirmed',
+			'password_confirmation' => 'required|min:6'
+
+		]);
+
+		if($validator->fails()){
+			return Redirect::back()->withErrors($validator)->withInput();
+
+		}
+
+		$user = User::create([
+			'name' => Input::get('name'),
+			'summ_name' => Input::get('summ_name'),
+			'email' => Input::get('email'),
+			'password' => Hash::make(Input::get('password')),
+			'rank' => 0
+		]);
+
+
+		Auth::login($user);
+
+		return Redirect::route('index');
 	}
 
 

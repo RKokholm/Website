@@ -9,11 +9,23 @@
 <body>
 	<div id="header">
 		<div id="headercenter">
-			<ul id="authlist">
-				<li><a href="#">Login</a></li>
-				<li><a href="{{ URL::route('registration_path') }}">Sign up</a></li>
-			</ul>
 			
+			@if(Auth::check())
+
+				<ul id="authlist">
+					<li><a href="{{ URL::route('logout_path') }}">Log out</a></li>
+					<li><a href="{{ URL::route('logout_path') }}">{{ Auth::user()->name }}</a></li>
+				</ul>
+			
+			@else
+
+				<ul id="authlist">
+					<li><a href="{{ URL::route('login_path') }}">Login</a></li>
+					<li><a href="{{ URL::route('registration_path') }}">Sign up</a></li>
+				</ul>
+
+			@endif
+
 			<a href="{{ URL::route('index') }}"><span class="title">Website</span></a>
 		
 			<nav id="headernav">

@@ -5,5 +5,11 @@
 @stop
 
 @section('content')
-	<h1>Welcome</h1>
+
+	@if(Auth::check())
+		Velkommen {{ Auth::user()->name }}
+	@else
+		Du skal logge ind
+	@endif
+
 @stop
