@@ -7,9 +7,9 @@
 @section('content')
 
 	@if(Auth::check())
-		Velkommen {{ Auth::user()->name }}
+		<h1>Velkommen {{ Auth::user()->name }}</h1>
 	@else
-		Du skal logge ind
+		<h1>Du skal logge ind</h1>
 	@endif
 
 @stop
